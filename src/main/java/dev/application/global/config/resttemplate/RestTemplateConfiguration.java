@@ -1,4 +1,4 @@
-package dev.application.global.config;
+package dev.application.global.config.resttemplate;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -20,6 +20,7 @@ public class RestTemplateConfiguration {
         return templateBuilder.rootUri(CURRENCY_LAYER_URL)
                 .setConnectTimeout(Duration.ofMillis(5000))
                 .setReadTimeout(Duration.ofMillis(5000))
+                .errorHandler(new RestTemplateErrorHandler())
                 .build();
     }
 
