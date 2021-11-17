@@ -18,7 +18,7 @@ public class CurrencyLayerApi {
     private static final String URI = "/live?access_key=";
 
     @Value("${api.accessKey}")
-    private final String accessKey;
+    private String accessKey;
     private final RestTemplate currencyLayerTemplate;
     private final CacheManager cacheManager;
 
