@@ -2,6 +2,7 @@ package dev.application.domain.exchangerate.application;
 
 import dev.application.domain.exchangerate.domain.ExchangeRate;
 import dev.application.domain.exchangerate.dto.request.ExchangeAmountRequest;
+import dev.application.domain.exchangerate.exception.UnsupportedRecipientCountryException;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -10,8 +11,7 @@ import java.util.function.BiFunction;
 public enum CurrencyOperator {
     KRW("usdkrw", (amount, exchangeRate) -> amount.multiply(exchangeRate.getUsdkrw())),
     JPY("usdjpy", (amount, exchangeRate) -> amount.multiply(exchangeRate.getUsdjpy())),
-    PHP("usdphp", (amount, exchangeRate) -> amount.multiply(exchangeRate.getUsdphp())),
-    EMPTY("none", (amount, exchangeRate) -> BigDecimal.ZERO);
+    PHP("usdphp", (amount, exchangeRate) -> amount.multiply(exchangeRate.getUsdphp()));
 
     private final String exchangeCode;
     private final BiFunction<BigDecimal, ExchangeRate, BigDecimal> expression;
@@ -30,6 +30,7 @@ public enum CurrencyOperator {
         return Arrays.stream(values())
                 .filter(country -> country.exchangeCode.equals(recipientCountry))
                 .findFirst()
-                .orElse(EMPTY); // TODO exception처리하도록 변경해야함
+                .orElseThrow(() ->
+                        new UnsupportedRecipientCountryException(recipientCountry + "는 지원하지 않는 국가입니다."));
     }
 }
