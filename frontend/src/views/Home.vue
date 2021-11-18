@@ -1,17 +1,20 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div>
+    <headers msg="환율 계산"/>
+    <exchange-calculator/>
   </div>
+
 </template>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator'
-import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
+import Headers from '@/components/Headers.vue'
+import ExchangeCalculator from '@/components/ExchangeCalculator.vue' // @ is an alias to /src
 
 @Component({
   components: {
-    HelloWorld
+    ExchangeCalculator,
+    Headers
   }
 })
 export default class Home extends Vue {}
