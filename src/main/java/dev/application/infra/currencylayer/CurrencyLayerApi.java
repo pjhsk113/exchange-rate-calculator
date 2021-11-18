@@ -9,7 +9,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 @Component
@@ -31,7 +30,6 @@ public class CurrencyLayerApi {
     @Scheduled(cron = "0 0/30 8-18 * * *")
     public void refreshCache() {
         for (String name : cacheManager.getCacheNames()) {
-            System.out.printf("[%s] %s%n", java.time.LocalTime.now().truncatedTo(ChronoUnit.MILLIS), name);
             Objects.requireNonNull(cacheManager.getCache(name)).clear();
         }
     }
