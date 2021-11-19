@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public enum CacheTypes {
-    EXCHANGE_RATE("exchange_rate", 30 * 60, 10_000);
+    EXCHANGE_RATE("exchange_rate", 60, 10_000);
 
     private String cacheName;
     private int expiredAfterWrite;

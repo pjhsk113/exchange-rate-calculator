@@ -26,8 +26,8 @@ public class CurrencyLayerApi {
         return currencyLayerTemplate.getForObject(URI + accessKey, CurrencyLayerApiResponse.class);
     }
 
-    // 매일 8:00시 ~ 18:00시 동안 30분 간격으로 캐시 비우기
-    @Scheduled(cron = "0 0/30 8-18 * * *")
+    // 1분 간격으로 캐시 비우기
+    @Scheduled(cron = "0 */1 * * * *")
     public void refreshCache() {
         for (String name : cacheManager.getCacheNames()) {
             Objects.requireNonNull(cacheManager.getCache(name)).clear();
