@@ -1,7 +1,7 @@
 package dev.application.global.config.resttemplate;
 
 import dev.application.global.error.exception.ErrorCode;
-import dev.application.infra.currencylayer.exception.ExternalApiException;
+import dev.application.infrastructure.currencylayer.exception.ExternalApiException;
 import lombok.NonNull;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.client.ClientHttpResponse;

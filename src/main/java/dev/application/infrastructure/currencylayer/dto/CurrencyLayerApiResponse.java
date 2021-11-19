@@ -1,4 +1,4 @@
-package dev.application.infra.currencylayer.dto;
+package dev.application.infrastructure.currencylayer.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import dev.application.domain.exchangerate.domain.ExchangeRate;

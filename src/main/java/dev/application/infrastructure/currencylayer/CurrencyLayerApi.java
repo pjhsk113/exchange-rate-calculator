@@ -1,6 +1,6 @@
-package dev.application.infra.currencylayer;
+package dev.application.infrastructure.currencylayer;
 
-import dev.application.infra.currencylayer.dto.CurrencyLayerApiResponse;
+import dev.application.infrastructure.currencylayer.dto.CurrencyLayerApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;

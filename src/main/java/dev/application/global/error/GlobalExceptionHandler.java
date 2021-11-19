@@ -2,7 +2,7 @@ package dev.application.global.error;
 
 import dev.application.global.error.exception.BusinessException;
 import dev.application.global.error.exception.ErrorCode;
-import dev.application.infra.currencylayer.exception.ExternalApiException;
+import dev.application.infrastructure.currencylayer.exception.ExternalApiException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

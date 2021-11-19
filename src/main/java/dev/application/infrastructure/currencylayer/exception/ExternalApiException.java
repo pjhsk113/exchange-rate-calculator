@@ -1,4 +1,4 @@
-package dev.application.infra.currencylayer.exception;
+package dev.application.infrastructure.currencylayer.exception;
 
 import dev.application.global.error.exception.ErrorCode;
 
