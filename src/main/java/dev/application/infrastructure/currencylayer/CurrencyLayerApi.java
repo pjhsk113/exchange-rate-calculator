@@ -1,5 +1,6 @@
 package dev.application.infrastructure.currencylayer;
 
+import dev.application.domain.exchangerate.domain.ExchangeRate;
 import dev.application.infrastructure.currencylayer.dto.CurrencyLayerApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,8 +23,9 @@ public class CurrencyLayerApi {
     private final CacheManager cacheManager;
 
     @Cacheable(cacheNames = "exchange_rate")
-    public CurrencyLayerApiResponse getExchangeRate() {
-        return currencyLayerTemplate.getForObject(URI + accessKey, CurrencyLayerApiResponse.class);
+    public ExchangeRate getExchangeRate() {
+        CurrencyLayerApiResponse response = currencyLayerTemplate.getForObject(URI + accessKey, CurrencyLayerApiResponse.class);
+        return CurrencyLayerApiResponse.newExchangeRate(response);
     }
 
     // 1분 간격으로 캐시 비우기
