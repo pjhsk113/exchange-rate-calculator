@@ -14,6 +14,8 @@
 
 ## 프론트엔드
 
+![](./images/exchange-rate-calculator.gif)
+
 ### setup
 ```
 cd frontend
