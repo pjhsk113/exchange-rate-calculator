@@ -30,11 +30,11 @@ public class ErrorResponse {
         this.detailMessage = message;
     }
 
-    public static ErrorResponse of(final ErrorCode code, BindingResult result) {
+    public static ErrorResponse of(final ErrorCode code, final BindingResult result) {
         return new ErrorResponse(code, result.getFieldError().getDefaultMessage());
     }
 
-    public static ErrorResponse of(final ErrorCode code, String details) {
+    public static ErrorResponse of(final ErrorCode code, final String details) {
         return new ErrorResponse(code, details);
     }
 
