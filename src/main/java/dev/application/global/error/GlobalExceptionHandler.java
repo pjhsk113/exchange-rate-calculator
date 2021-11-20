@@ -27,7 +27,8 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     *  요청 파라미터 Binding 실패 시 발생
+     * javax.validation 입력 값 검증 실패 시 발생
+     * 요청 파라미터 Binding 실패 시 발생
      */
     @ExceptionHandler(BindException.class)
     protected ResponseEntity<ErrorResponse> handleBindException(BindException e) {
@@ -67,6 +68,9 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.valueOf(errorCode.getStatus()));
     }
 
+    /**
+     * 핸들링 하지 못한 오류
+     */
     @ExceptionHandler(Exception.class)
     protected ResponseEntity<ErrorResponse> handleException(Exception e) {
         log.error("handleEntityNotFoundException", e);
