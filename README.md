@@ -3,6 +3,7 @@
 
 [소스 코드 바로보기](https://github1s.com/pjhsk113/exchange-rate-calculator)
 
+github에 공개된 wirebarley의 코딩 테스트 문제를 구현한 프로젝트입니다.
 
 ## 구현 기능 정리
 
